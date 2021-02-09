@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Covid-19 data table</title>
+		<meta charset="utf-8" />
+		<!--
+			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+			<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+			<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+			-->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<!--
+			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+			-->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+	</head>
+	<body>
+		<div id="loading">Loading...</div>
+		<div id="app">
+			<v-app id="inspire">
+				<h2>Rows configuration</h2>
+				<v-row onclick="updateConfig()">
+					<v-col>
+						<v-checkbox v-model="total_cases" :label="`Total cases`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="new_cases" :label="`New cases`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="total_cases_per_million" :label="`Total cases per 1M`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="total_deaths" :label="`Total deaths`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="new_deaths" :label="`New deaths`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="total_deaths_per_million" :label="`Total deaths per 1M`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="total_tests" :label="`Total tests`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="new_tests" :label="`New tests`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="positive_rate" :label="`Positive rate`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="total_tests_per_thousand" :label="`Total tests per 1k`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="total_vaccinations" :label="`Total vaccinations`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="new_vaccinations" :label="`New vaccinations`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="total_vaccinations_per_hundred" :label="`Vaccination per 100`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="median_age" :label="`Median age`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="life_expectancy" :label="`Life expectancy`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="aged_65_older" :label="`Aged 65+`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="hospital_beds_per_thousand" :label="`Hospital beds per 1k`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="human_development_index" :label="`HDI`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="population" :label="`Population`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="population_density" :label="`Population density`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="diabetes_prevalence" :label="`Diabetes prevalence`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="handwashing_facilities" :label="`Handwashing facilities`"></v-checkbox>
+					</v-col>
+					<v-col>
+						<v-checkbox v-model="gdp_per_capita" :label="`GDP per capita`"></v-checkbox>
+					</v-col>
+				</v-row>
+				<v-data-table
+					:headers="headers"
+					:items="countries"
+					:items-per-page="50"
+					class="elevation-1"
+					:footer-props="{ itemsPerPageOptions: [20, 50, 100, -1]}"
+					></v-data-table>
+			</v-app>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
